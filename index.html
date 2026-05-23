@@ -198,7 +198,7 @@ async function loadStrategies(){
 try{
 
 const r = await fetch(
-'http://localhost:8000/strategies?balance=' + currentBalance
+'http://aiquant-backend-production.up.railway.app/strategies?balance=' + currentBalance
 );
 
 const data = await r.json();
