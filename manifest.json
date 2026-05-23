@@ -1,0 +1,8 @@
+{
+  "name": "AI智能量化交易系统",
+  "short_name": "AI量化",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a"
+}

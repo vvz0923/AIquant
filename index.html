@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>AI智能量化交易系统</title>
+
+<link rel="manifest" href="manifest.json">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+    padding:20px;
+}
+
+.header{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.header h1{
+    font-size:30px;
+    margin-bottom:10px;
+}
+
+.header p{
+    color:#94a3b8;
+}
+
+.card{
+    background:#1e293b;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:18px;
+    box-shadow:0 0 15px rgba(0,0,0,0.25);
+}
+
+.card h2{
+    margin-bottom:15px;
+    font-size:20px;
+}
+
+.price{
+    font-size:36px;
+    font-weight:bold;
+    color:#22c55e;
+}
+
+.signal{
+    font-size:28px;
+    font-weight:bold;
+    color:#22c55e;
+}
+
+.strategy{
+    margin-top:12px;
+    color:#cbd5e1;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:10px;
+    color:#e2e8f0;
+}
+
+.risk{
+    color:#facc15;
+    font-size:18px;
+}
+
+.pnl{
+    color:#22c55e;
+    font-size:24px;
+    font-weight:bold;
+}
+
+button{
+    width:100%;
+    background:#22c55e;
+    color:white;
+    border:none;
+    padding:18px;
+    border-radius:16px;
+    font-size:18px;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+button:active{
+    transform:scale(0.98);
+}
+
+.footer{
+    text-align:center;
+    margin-top:30px;
+    color:#64748b;
+    font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>AI智能量化交易系统</h1>
+    <p>ETH 实时AI自动交易平台</p>
+</div>
+
+<div class="card">
+    <h2>ETH / USDT 实时价格</h2>
+    <div class="price" id="price">加载中...</div>
+</div>
+
+<div class="card">
+    <h2>AI信号分析</h2>
+
+    <div class="signal" id="signal">
+        看涨概率 74%
+    </div>
+
+    <div class="strategy">
+        当前策略：
+        EMA趋势 + PPO强化学习AI
+    </div>
+</div>
+
+<div class="card">
+    <h2>策略理由</h2>
+
+    <ul>
+        <li>EMA20 上穿 EMA50</li>
+        <li>MACD 金叉形成</li>
+        <li>AI 置信度高于 70%</li>
+        <li>成交量持续增加</li>
+        <li>市场波动率处于安全范围</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h2>风险控制</h2>
+
+    <p class="risk">
+        当前风险等级：中等
+    </p>
+
+    <br>
+
+    <p>
+        动态仓位：12%
+    </p>
+
+    <br>
+
+    <p>
+        最大回撤限制：8%
+    </p>
+</div>
+
+<div class="card">
+    <h2>今日收益</h2>
+
+    <div class="pnl">
+        +12.84%
+    </div>
+</div>
+
+<button onclick="startTrading()">
+    启动AI自动交易
+</button>
+
+<div class="footer">
+    AI Quant Ultimate © 2026
+</div>
+
+<script>
+
+async function loadPrice(){
+
+    try{
+
+        const response = await fetch(
+            'https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT'
+        );
+
+        const data = await response.json();
+
+        document.getElementById('price').innerHTML =
+            '$ ' + parseFloat(data.price).toFixed(2);
+
+    }catch(e){
+
+        document.getElementById('price').innerHTML =
+            '价格获取失败';
+
+    }
+}
+
+function startTrading(){
+
+    alert(
+        'AI自动交易已启动\n\n当前模式：\nPPO强化学习 + 动态风控'
+    );
+}
+
+loadPrice();
+
+setInterval(loadPrice,5000);
+
+</script>
+
+</body>
+</html>
