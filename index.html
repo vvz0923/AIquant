@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Quant Ultimate</title>
+<link rel="manifest" href="manifest.json">
+<style>
+body { font-family: Arial; background:#0f172a; color:white; padding:20px; }
+.card { background:#1e293b; padding:20px; border-radius:16px; margin-bottom:16px; }
+button { padding:12px 20px; border:none; border-radius:10px; background:#22c55e; color:white; }
+</style>
+</head>
+<body>
+
+<h1>AI Quant Ultimate</h1>
+
+<div class="card">
+<h2>ETH/USDT</h2>
+<p id="price">Loading...</p>
+</div>
+
+<div class="card">
+<h2>AI Signal</h2>
+<p id="signal">Bullish 74%</p>
+<p>Strategy: EMA Trend + PPO AI</p>
+</div>
+
+<div class="card">
+<h2>Strategy Reason</h2>
+<ul>
+<li>EMA20 crossed EMA50</li>
+<li>MACD bullish crossover</li>
+<li>AI confidence above 70%</li>
+<li>Volatility within safe threshold</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Risk Control</h2>
+<p>Current Risk: Medium</p>
+<p>Dynamic Position Size: 12%</p>
+</div>
+
+<button onclick="alert('Auto Trading Enabled')">Enable Auto Trading</button>
+
+<script>
+async function loadPrice() {
+    const r = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT');
+    const d = await r.json();
+    document.getElementById('price').innerText = '$' + d.price;
+}
+loadPrice();
+setInterval(loadPrice, 5000);
+</script>
+
+</body>
+</html>

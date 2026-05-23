@@ -1,0 +1,9 @@
+
+{
+  "name": "AI Quant Ultimate",
+  "short_name": "AIQuant",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a"
+}
